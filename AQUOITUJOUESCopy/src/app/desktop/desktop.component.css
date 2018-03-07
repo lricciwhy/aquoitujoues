@@ -1,0 +1,206 @@
+.logo {
+  float: left;
+  width: 100px;
+  height: 150px;
+  position: relative;
+  color: black;
+  margin: 90px 70px 0px 0px;
+}
+.logo-image {
+  color: black;
+  width: 200px;
+  height: 80px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin-left: 50px;
+}
+.title, .footer {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+}
+
+.title {
+  top: 0px;
+  height: 167px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+app-bannierejeux {
+  width: 33%;
+}
+.title h1 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin: 0px;
+}
+.title h2 {
+  font-size: 20px;
+  margin: 0px;
+}
+.subtitle {
+  text-align: center;
+}
+
+.footer {
+  height: 50px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  bottom: 0px;
+  font-size: 10px;
+}
+.footer .lien {
+  float: left;
+  font-size: 20px;
+  margin: 10px 20px;
+  position: relative;
+}
+.footer .lien.mentionslegales {
+  float: right;
+}
+.footer .lien:not(:first-child):not(:last-child):before {
+  content: '|';
+  font-weight: 700;
+  font-size: 40px;
+  position: absolute;
+  top: -12px;
+  left: -20px;
+}
+
+.hand-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+ul.myHand {
+  padding: 0px;
+  margin: 40px 40px 80px;
+  position: relative;
+  width: 700px;
+  height: calc(100vh - 120px);
+}
+
+.aCard {
+  list-style-type: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 25px 0 rgba(0, 0, 0, 0.9);
+  position: absolute;
+  overflow: hidden;
+  background-size: 15vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-height: 100%;
+}
+
+.aCard.flipped {
+  background-image: none !important;
+  z-index: 10 !important;
+}
+.aCard:not(.flipped):hover {
+  cursor: pointer;
+  filter: brightness(140%);
+}
+
+.aCard h2 {
+  margin: 0px;
+  text-align: left;
+  font-size: 24px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 30px;
+  transition: all 0.5s;
+  padding: 10px 50px 10px 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.aCard:not(.flipped) h2 {
+  color: white;
+}
+.aCard.flipped h2 {
+  padding: 10px 80px;
+  background-image: none !important;
+  font-size: 30px;
+}
+
+.aCard h2.top {
+  top: 0px;
+}
+.aCard h2.bottom {
+  bottom: 0px;
+  transform: rotate(180deg);
+}
+
+.aCard .dos {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.aCard.flipped {
+  background-color: #eee!important;
+}
+
+.aCard.flipped .dos {
+  display: none;
+}
+
+.aCard .content {
+  display: none;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  font-family: Roboto;
+}
+.aCard .content.white {
+  background-color: white;
+}
+
+.aCard.flipped .content {
+  display: block;
+}
+
+.aCard .closeButton {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 25px 0px 25px 25px;
+}
+
+.content > *:first-child {
+  padding: 0px 40px;
+  display: block;
+  overflow: auto;
+  position: absolute;
+  bottom: 60px;
+  top: 60px;
+}
+
+
+app-nosjeux {
+  width: calc(100% - 80px);
+}
+
+app-contact {
+  width: calc(100% - 80px);
+}

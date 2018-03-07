@@ -1,0 +1,9 @@
+
+@media screen and (min-width: 400px) {
+  .quote {
+    float: left;
+    width: 50%;
+    margin: 20px 20px 20px 0px;
+  }
+
+}

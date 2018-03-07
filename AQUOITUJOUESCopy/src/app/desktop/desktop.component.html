@@ -1,0 +1,71 @@
+<div class="title">
+    <div class="subtitle">
+      <app-logodeux class="logo-image"></app-logodeux>
+      <h1>
+        Á quoi tu joues
+      </h1>
+      <h2>
+        Vous allez aimer apprendre à jouer !
+      </h2>
+    </div>
+</div>
+
+<div class="hand-container" >
+  <ul class="myHand ">
+    <li  *ngFor="let card of cards; let i = index"
+      id="card{{i}}"
+      class="aCard "
+      [style.backgroundColor]="card.background"
+      [style.backgroundImage]="card.backgroundImage"
+      [style.zIndex]="cards.length - i"
+      (mouseenter)="mouseEnter(i)"
+      (mouseleave)="mouseLeave(i)"
+    >
+      <h2 class="top"
+      [style.backgroundImage]="card.backgroundImage">{{card.title}}</h2>
+      <h2 class="bottom"
+      [style.backgroundImage]="card.backgroundImage">{{card.title}}</h2>
+      <div class="dos"
+        (click)="clickCard(card.class)">
+      </div>
+      <div class="content" [class.white]="card.class == 'nosjeux'">
+        <app-presentation *ngIf="card.class == 'presentation'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-presentation>
+        <app-quijoue *ngIf="card.class == 'quijoue'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-quijoue>
+        <app-nosinterventions *ngIf="card.class == 'nosinterventions'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-nosinterventions>
+        <app-entreprises *ngIf="card.class == 'entreprises'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-entreprises>
+        <app-bars *ngIf="card.class == 'bars'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-bars>
+        <app-particuliers *ngIf="card.class == 'particuliers'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-particuliers>
+        <app-etablissementsspecialises *ngIf="card.class == 'etablissementsspecialises'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-etablissementsspecialises>
+        <app-contact *ngIf="card.class == 'contact'"></app-contact>
+        <app-nosjeux *ngIf="card.class == 'nosjeux'"
+          [cards]="cards"
+          (emitted)="emitted($event)"></app-nosjeux>
+          <app-mentionslegales *ngIf="card.class == 'mentionslegales'"></app-mentionslegales>
+          <app-dbaccess *ngIf="card.class == 'dbaccess'"></app-dbaccess>
+        <div class="button button-primary closeButton" (click)="clickCard(card.class)">X</div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="footer">
+    <div class="lien presentation">Présentation</div>
+    <div class="lien quijoue">Qui joue ?</div>
+    <div class="lien nosinterventions">Nos interventions</div>
+    <div class="lien nosjeux">Nos jeux</div>
+    <div class="lien contact">Contact</div>
+    <div class="lien mentionslegales">Mentions légales</div>
+</div>

@@ -1,0 +1,58 @@
+<div class='title'>A ? Tu Joues ?</div>
+<div *ngIf="display !== '' "
+    class='close button button-primary'
+    (click)="display = ''; menu = false">
+</div>
+<div class='sandwich button button-primary'
+  (click)="menu = !menu"
+  [class.change]="menu"
+  >
+  <div class='bar1'></div>
+  <div class='bar2'></div>
+  <div class='bar3'></div>
+</div>
+<div class="button-bar" *ngIf='menu'>
+    <div class="button button-primary "(click)="display = 'presentation'; menu = false">Présentation</div>
+    <div class="button button-primary "(click)="display = 'quijoue'; menu = false">Qui joue ?</div>
+    <div class="button button-primary "(click)="display = 'nosinterventions'; menu = false">Nos interventions</div>
+    <div class="button button-primary "(click)="display = 'nosjeux'; menu = false">Nos jeux</div>
+    <div class="button button-primary "(click)="display = 'contact'; menu = false">Contact</div>
+</div>
+
+<div class='content'
+  [class.blur]='menu'
+  [class.selected]="display != ''">
+  <app-presentation [class.display]="display == 'presentation'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-presentation>
+  <app-quijoue [class.display]="display == 'quijoue'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-quijoue>
+  <app-nosinterventions [class.display]="display == 'nosinterventions'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-nosinterventions>
+  <app-entreprises [class.display]="display == 'entreprises'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-entreprises>
+  <app-bars [class.display]="display == 'bars'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-bars>
+  <app-particuliers [class.display]="display == 'particuliers'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-particuliers>
+  <app-etablissementsspecialises [class.display]="display == 'etablissementsspecialises'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-etablissementsspecialises>
+  <app-contact [class.display]="display == 'contact'" class="menu-item"></app-contact>
+  <app-nosjeux [class.display]="display == 'nosjeux'" class="menu-item"
+    [cards]="cardsToInit"
+    (emitted)="emitted($event)"></app-nosjeux>
+  <app-mentionslegales [class.display]="display == 'mentionslegales'" class="menu-item"></app-mentionslegales>
+  <div class="white"></div>
+  <div  [class.display]="display == '' ">
+    <app-logo class='menu-item logo'></app-logo>
+  </div>
+</div>
+<div class="footer">
+    <div class="lien mentionslegales">Mentions légales</div>
+</div>

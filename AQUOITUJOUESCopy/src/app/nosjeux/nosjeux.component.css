@@ -1,0 +1,66 @@
+.quote {
+    margin-bottom: 20px;
+}
+
+.jeu {
+  display: inline-block;
+  width: 28%;
+  padding: 5px;
+  background: #fff;
+  position: relative;
+  padding-top: 30px;
+  cursor: pointer;
+}
+
+.filtre-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.filtre-titre {
+  padding: 5px 40px;
+  border-radius: 15px;
+}
+.filtre-groupe {
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.filter {
+  width: 25%;
+  float: left;
+  border-radius: 10px;
+  height: 30px;
+  padding: 5px;
+  margin: 5px;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.4s;
+}
+.filter.used {
+  background: #4292c4;
+  color: white;
+}
+.jeu.disabled {
+  display: none;
+}
+.filter:not(.used):hover {
+  background: #eee;
+}
+
+.listedesjeux img {
+  width: 100%;
+}
+
+
+.title {
+  display: none;
+  position: absolute;
+  top: 0px;
+}
+.jeu:hover .title {
+  display: block;
+}

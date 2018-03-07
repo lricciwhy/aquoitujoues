@@ -1,0 +1,152 @@
+@font-face {
+  font-family: Roboto;
+  src: url(./assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: Indie;
+  src: url(./assets/fonts/Indie_Flower/IndieFlower.ttf);
+}
+@font-face {
+  font-family: Ubuntu;
+  src: url(./assets/fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0px;
+  font-family: "Indie";
+  color: #333;
+}
+
+a {
+  color : #333;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.buttonBar {
+  float: left;
+  width: 100%;
+}
+
+.button {
+  float: left;
+  line-height: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 2px 14px;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-box-shadow: 6px 9px 44px -13px rgba(0, 0, 0, 0.9);
+  box-shadow: 6px 9px 44px -13px rgba(0, 0, 0, 0.9);
+  transition: 0.4s;
+}
+.button:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.button.button-secondary {
+  background: #666;
+  color: #eee;
+}
+.button.button-secondary:hover {
+  background: white;
+  color: #666;
+}
+.button.button-primary {
+  background: white;
+  color: #666;
+}
+.button.button-primary:hover {
+  background: #666;
+  color: #eee;
+}
+
+.button:first-child {
+  margin-left: 0px;
+}
+.button:last-child {
+  margin-right: 0px;
+}
+
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+.avatar {
+  float: right;
+  height: 120px;
+  width: 120px;
+  background-image: url('./assets/symboles/Pi.png');
+  background-size: 100%;
+  margin-top: 30px;
+}
+
+.highlighted {
+  font-weight: 700;
+  color: #4292c4;
+}
+
+.quote {
+  border-radius: 0px 25px 0px 25px;
+  padding: 20px;
+  box-shadow: 6px 9px 44px -13px rgba(0, 0, 0, 0.9);
+  background: white;
+  font-family: Indie;
+}
+
+@media screen and (max-width: 401px) {
+  .quote {
+    width: calc(100% - 40px);
+    margin: 20px 0px 20px 0px;
+  }
+}
+
+.openQuote, .closeQuote {
+  font-size: 70px;
+  height: 20px;
+  line-height: 20px;
+  color: #999;
+  padding: 35px 10px 0px 0px;
+}
+.openQuote {
+  float: left;
+}
+
+.closeQuote:after {
+  content: '"';
+  position: relative;
+  top: 35px;
+  font-size: 70px;
+}
+.closeQuote {
+  padding: 0px;
+  height: 0px;
+  font-size: 0px;
+}
+
+.content {
+  text-align: justify;
+}
+
+.lien {
+  display: inline-block;
+  cursor: pointer;
+}
+.lien:hover {
+  text-decoration: underline;
+}

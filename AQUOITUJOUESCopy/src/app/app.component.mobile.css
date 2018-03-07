@@ -1,0 +1,16 @@
+@media (max-width: 1200px) {
+
+
+  .myHand {
+    width: 100% !important;
+    height: 100vh !important;
+  }
+  .aCard.flipped {
+    width: calc(100% + 80px) !important;
+    height: 100% !important;
+    left: -40px !important ;
+    top: -40px !important ;
+  }
+
+
+}

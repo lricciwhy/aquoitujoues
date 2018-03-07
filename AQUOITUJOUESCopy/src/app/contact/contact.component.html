@@ -1,0 +1,56 @@
+<div class="quote">
+    <div class="icon icon-game"></div>
+    <span>A Quoi Tu Joues</span><br />
+
+    <div class="icon icon-human"></div>
+    <span>Pierre Mougin</span><br />
+
+    <div class="icon icon-email"></div>
+    <span><a href="mailto:pmougin@aquoitujoues.fr">pmougin@aquoitujoues.fr</a></span><br />
+
+    <div class="icon icon-phone"></div>
+    <span><a href="tel:+33660464148">06.60.46.41.48</a></span>
+</div>
+<div class="quote">
+  <form id="myform" >
+    <div class="formRow">
+      <div class="formLabel">Vous êtes</div>
+      <select id="vousetes" [(ngModel)]="selectedValue" name='vousetes'>
+        <option *ngFor="let l of typeList" [ngValue]="l.label" selected>{{l.label}}</option>
+      </select>
+    </div>
+    <div class="formRow" *ngIf="selectedValue == typeList[4].label">
+      <div class="formLabel">Précisez</div>
+      <input type="text" name='autreValue' [(ngModel)]="autreValue" >
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Votre nom</div>
+      <input type="text" name='nom' [(ngModel)]="nom" >
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Votre prénom</div>
+      <input type="text" name='prenom' [(ngModel)]="prenom" >
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Votre courriel</div>
+      <input type="text" name='email' [(ngModel)]="email" >
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Sujet</div>
+      <input type="text" name='sujet' [(ngModel)]="sujet" >
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Message</div><br />
+      <textarea name="yourMessage" cols="40" rows="10" class="" [(ngModel)]="yourMessage"  ></textarea>
+    </div>
+    <div class="formRow" >
+      <button id="submitMail" class="send button button-primary" >
+        <div class="icon icon-email"></div>
+        Envoyer
+      </button>
+      <div *ngIf="statusMail=='confirmation'" class="confirmation">Votre message a bien été envoyé !</div>
+      <div *ngIf="statusMail=='error'" class="error ">Erreur : Votre message n'a pas été envoyé !</div>
+      <div *ngIf="statusMail=='information'" class="information ">Votre message est en cours d'envoi</div>
+    </div>
+  </form>
+</div>

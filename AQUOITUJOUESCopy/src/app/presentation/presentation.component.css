@@ -1,0 +1,11 @@
+.logo {
+  float: left;
+  width: 100px;
+  height: 150px;
+  position: relative;
+  margin: 33px 70px 0px 0px;
+}
+
+.quote {
+  margin: 20px 0px;
+}

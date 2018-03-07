@@ -1,0 +1,54 @@
+<app-bannierejeux
+[folder]='folder'
+[page]='page'></app-bannierejeux>
+<div class="quote">
+    <span class="openQuote">“</span>
+Avec une ludothèque de plus de 200 jeux, <span class="highlighted">«&nbsp;A Quoi Tu Joues&nbsp;»</span> saura trouver les jeux
+adaptés à vos attentes et vos objectifs. Si toutefois vous souhaitez tester un jeu en particulier,
+n’hésitez pas à en faire la demande. Vous trouverez les jeux disponibles ci-dessous.
+Nous acquérons régulièrement de nouveaux jeux, donc si vous souhaitez découvrir
+un jeu non référencé ici, merci de bien vouloir <div class="lien contact highlighted">nous contacter</div>.
+<span class="closeQuote"></span>
+</div>
+
+<div class="filtre-container">
+  <div (click)="(filtertype == 'genre')?filtertype='':filtertype='genre'" class="filtre-titre button button-primary">Genre</div>
+  <div (click)="(filtertype == 'duree')?filtertype='':filtertype='duree'" class="filtre-titre button button-primary">Durée</div>
+</div>
+<div class="filtre-container">
+  <div class="filtre-groupe filtre-groupe-genre" *ngIf="filtertype == 'genre'">
+    <div [class.used]='filterByFamille' class='filter' (click)='filterByFamille = !filterByFamille'>Famille</div>
+    <div [class.used]='filterByBluff' class='filter' (click)='filterByBluff = !filterByBluff'>Bluff</div>
+    <div [class.used]='filterByGestion' class='filter' (click)='filterByGestion = !filterByGestion'>Gestion</div>
+    <div [class.used]='filterByStrat' class='filter' (click)='filterByStrat = !filterByStrat'>Stratégie</div>
+    <div [class.used]='filterByAmbiance' class='filter' (click)='filterByAmbiance = !filterByAmbiance'>Ambiance</div>
+    <div [class.used]='filterByRefl' class='filter' (click)='filterByRefl = !filterByRefl'>Réflexion</div>
+    <div [class.used]='filterByExpr' class='filter' (click)='filterByExpr = !filterByExpr'>Expression</div>
+    <div [class.used]='filterByCollab' class='filter' (click)='filterByCollab = !filterByCollab'>Collaboration</div>
+  </div>
+  <div class="filtre-groupe filtre-groupe-duree" *ngIf="filtertype == 'duree'">
+    <div [class.used]="filterByDuree == 'Court' " class='filter' (click)="filterByDuree = (filterByDuree == 'Court' ? '' : 'Court') ">Court</div>
+    <div [class.used]="filterByDuree == 'Moyen' " class='filter' (click)="filterByDuree = (filterByDuree == 'Moyen' ? '' : 'Moyen') ">Moyen</div>
+    <div [class.used]="filterByDuree == 'Long' " class='filter' (click)="filterByDuree = (filterByDuree == 'Long' ? '' : 'Long') ">Long</div>
+    <div [class.used]="filterByDuree == 'Tres Long' " class='filter' (click)="filterByDuree = (filterByDuree == 'Tres Long' ? '' : 'Tres Long') ">Tres Long</div>
+  </div>
+</div>
+
+<div class='listedesjeux ' >
+  <div *ngFor="let jeu of jeux | async" class='jeu '
+  [class.disabled] = "
+  (filterByFamille && jeu.genre.indexOf('Famille') == -1 ) ||
+  (filterByBluff && jeu.genre.indexOf('Bluff') == -1 ) ||
+  (filterByGestion && jeu.genre.indexOf('Gestion') == -1 ) ||
+  (filterByStrat && jeu.genre.indexOf('Stratégie') == -1 ) ||
+  (filterByAmbiance && jeu.genre.indexOf('Ambiance') == -1 ) ||
+  (filterByRefl && jeu.genre.indexOf('Réflexion') == -1 ) ||
+  (filterByExpr && jeu.genre.indexOf('Expression') == -1 ) ||
+  (filterByCollab && jeu.genre.indexOf('Collaboration') == -1 ) ||
+  (filterByDuree !== '' && jeu.duree.indexOf(filterByDuree) == -1 )
+
+    ">
+    <div class='title'>{{jeu.nom}}</div>
+    <img src="../../assets/dbjeux/{{camelize(jeu.nom)}}.jpg" />
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div>
+  <span>Liste des jeux déja enregistrés</span>
+  <div class='listedesjeux'>
+    <div *ngFor="let jeu of jeux | async">
+{{jeu.nom}}
+    </div>
+  </div>
+</div>
+
+<form>
+    <div class="formRow">
+      <div class="formLabel">Nom du jeu</div>
+      <input type="text"  [(ngModel)]="nom" name='nom'>
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Genre</div>
+      <input type="text" [(ngModel)]="genre" name='genre'>
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Durée</div>
+      <input type="text" [(ngModel)]="duree" name='duree'>
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Age min</div>
+      <input type="text" [(ngModel)]="agemin" name='agemin'>
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Nb joueur min</div>
+      <input type="text" [(ngModel)]="nbjoueurmin" name='nbjoueurmin'>
+    </div>
+    <div class="formRow">
+      <div class="formLabel">Nb joueur max</div>
+      <input type="text"  [(ngModel)]="nbjoueurmax" name='nbjoueurmax'>
+    </div>
+
+    <button (click)='addAGame()'>+</button>
+</form>
